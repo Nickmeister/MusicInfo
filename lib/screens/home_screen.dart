@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:music_info/models/response.dart';
-import 'package:music_info/utils/rest_helper.dart';
-import 'package:music_info/widgets/song_info.dart';
+import 'package:music_info/models/response_thumbnail.dart';
+import 'package:music_info/utils/rest_helper_util.dart';
+import 'package:music_info/screens/song_info_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
@@ -41,14 +42,14 @@ class _HomeScreenState extends State<HomeScreen> {
     bShowAnimation = true;
 
     try {
-      var res = await RestHelper.searchForSong(_inputTextController.text);
+      var res = await RestHelperUtil.searchForSong(_inputTextController.text);
 
       _updateText('');
 
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => SongInfo(
+            builder: (context) => SongInfoScreen(
                   res: res,
                 )),
       );
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => SongInfo(
+          builder: (context) => SongInfoScreen(
                 res: demoResp,
               )),
     );

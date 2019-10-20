@@ -1,3 +1,5 @@
+import 'package:music_info/models/response_thumbnail.dart';
+
 class Response {
   final String songName;
   final String albumTitle;
@@ -35,16 +37,4 @@ class Response {
   }
 }
 
-class ResponseThumbnail {
-  final String highQuality;
-  final String standard;
 
-  ResponseThumbnail({this.highQuality, this.standard});
-
-  factory ResponseThumbnail.fromJson(Map<String, dynamic> json) {
-    return ResponseThumbnail(
-      highQuality: json['highQuality'],
-      standard: json['standard'],
-    );
-  }
-}

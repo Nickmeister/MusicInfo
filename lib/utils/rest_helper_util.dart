@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:music_info/models/request_data.dart';
 import 'package:music_info/models/response.dart';
 import 'package:music_info/models/request.dart';
 
 // Music Graph API Documentation
 // https://rapidapi.com/macgyverapi/api/music-graph/endpoints
 
-class RestHelper {
+class RestHelperUtil {
   // Returns required http headers
   static Map<String, String> _getHeaders() {
     return {'x-rapidapi-host': "macgyverapi-music-graph-v1.p.rapidapi.com", 'x-rapidapi-key': "948ee35297msh4cffba52391389ap14c315jsn070fd6452b5d", 'content-type': "application/json", 'accept': "application/json"};
