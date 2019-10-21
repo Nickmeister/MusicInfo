@@ -23,7 +23,11 @@ class RestHelperUtil {
   static String _buildRequest(String searchText) {
     RequestData _data = RequestData(search: searchText);
     Request req = Request(key: "free", id: "9m9c8U4f", data: _data);
-    return json.encode(req.toJson());
+
+    // Encode request to json
+    var request = json.encode(req.toJson());
+    print('$request');
+    return request;
   }
 
   static Future<Response> searchForSong(String searchText) async {
