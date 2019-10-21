@@ -50,7 +50,7 @@ class RestHelperUtil {
 
         return Response.fromJson(json.decode(response.body));
       } else {
-        throw Exception('Failed to load post');
+        throw Exception('Failed to load song info');
       }
     } catch (error) {
       print('#searchForSong: ${error.toString()}');
