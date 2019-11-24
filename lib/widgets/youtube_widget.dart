@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/foundation.dart';
+import 'package:universal_html/html.dart' as html;
 
 class YoutubeWidget extends StatelessWidget {
   YoutubeWidget({Key key, this.ytLink}) : super(key: key);
@@ -11,11 +13,15 @@ class YoutubeWidget extends StatelessWidget {
     print('$url');
 
     if (url.isNotEmpty) {
-      if (await canLaunch(url)) {
-        await launch(url);
+      if (kIsWeb) {
+        html.window.location.assign(url);
       } else {
-        print('An error occurred');
-        throw 'Could not launch $url';
+        if (await canLaunch(url)) {
+          await launch(url);
+        } else {
+          print('An error occurred');
+          throw 'Could not launch $url';
+        }
       }
     }
   }

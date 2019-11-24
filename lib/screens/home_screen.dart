@@ -117,7 +117,9 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
 //        onPressed: _demoRequest,
         onPressed: _postRequest,
-        child: Icon(Icons.search),
+        child: Icon(
+          Icons.search,
+        ),
       ),
     );
   }
