@@ -12,24 +12,28 @@ class SongInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('${res.songName} - ${res.artist}'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              SongInfoWidget(
-                info: res,
-              ),
-              YoutubeWidget(
-                ytLink: res.ytVideo,
-              ),
-              ThumbnailWidget(
-                thumbnail: res.thumbnails,
-              ),
-            ],
+      appBar: AppBar(
+        title: Text('${res.songName} - ${res.artist}'),
+      ),
+      body: Flex(
+        direction: Axis.vertical,
+        children: <Widget>[
+          Flexible(
+            child: SongInfoWidget(
+              info: res,
+            ),
           ),
-        ));
+          Flexible(
+            child: YoutubeWidget(
+              ytLink: res.ytVideo,
+            ),
+          ),
+          Flexible(
+              child: ThumbnailWidget(
+            thumbnail: res.thumbnails,
+          ))
+        ],
+      ),
+    );
   }
 }

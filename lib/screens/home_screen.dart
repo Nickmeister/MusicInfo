@@ -126,10 +126,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _getSearchBar() {
     return TextField(
+      textInputAction: TextInputAction.done,
       controller: _inputTextController,
+      autofocus: true,
       decoration: InputDecoration(
         hintText: "Search for a song",
       ),
+      onSubmitted: ((value) {
+        _inputTextController.text = value;
+        _postRequest();
+      }),
     );
   }
 
